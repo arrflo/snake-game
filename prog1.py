@@ -20,8 +20,9 @@ def move ():
     if not inside (head) or head in snake:
         square(head.x,head.y,9,'red')
         update()
+        return
 
-    snake.append()
+    snake.append(head)
 
     if head == food:
         print('snake',len(snake))
@@ -40,13 +41,13 @@ def move ():
     update()
     ontimer(move,100)
 
-    hideturtle()
-    tracer(False)
-    listen()
-    onkey(lambda:change(10,0),'Right')
-    onkey(lambda:change(-10,0),'Left')
-    onkey(lambda:change(0,10),'Up')
-    onkey(lambda:change(0,-10),'Down')
+hideturtle()
+tracer(False)
+listen()
+onkey(lambda:change(10,0),'Right')
+onkey(lambda:change(-10,0),'Left')
+onkey(lambda:change(0,10),'Up')
+onkey(lambda:change(0,-10),'Down')
 
-    move()
-    done()
+move()
+done()
